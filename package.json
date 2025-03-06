@@ -1,5 +1,5 @@
 {
-	"name": "vite-react-ts-template",
+	"name": "react-ssr-demo",
 	"private": true,
 	"version": "1.0.0",
 	"type": "module",
