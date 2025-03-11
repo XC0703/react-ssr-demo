@@ -10,16 +10,21 @@
 	},
 	"scripts": {
 		"start": "pnpm run dev",
-		"dev": "vite",
-		"build": "tsc && vite build",
-		"preview": "vite preview",
+		"dev": "node server",
+		"build": "npm run build:client && npm run build:server",
+		"build:client": "vite build --outDir dist/client",
+		"build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+		"preview": "cross-env NODE_ENV=production node server",
 		"eslint": "eslint --fix --max-warnings=0",
 		"prettier": "prettier --write src/**/*.{ts,tsx,less}",
 		"prepare": "husky"
 	},
 	"dependencies": {
+		"compression": "^1.8.0",
+		"express": "^4.21.2",
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"react-dom": "^18.2.0",
+		"sirv": "^3.0.1"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.2.2",
